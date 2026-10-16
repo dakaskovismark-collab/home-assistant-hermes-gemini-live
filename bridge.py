@@ -53,7 +53,7 @@ class BridgeEventHandler(AsyncEventHandler):
                                     attribution=Attribution(name="Google", url="https://google.com"),
                                     installed=True,
                                     version="1.0",
-                                    languages=["ru"]
+                                    languages=["en"]
                                 )
                             ]
                         )
@@ -72,7 +72,7 @@ class BridgeEventHandler(AsyncEventHandler):
                                     attribution=Attribution(name="Google", url="https://google.com"),
                                     installed=True,
                                     version="1.0",
-                                    languages=["ru"]
+                                    languages=["en"]
                                 )
                             ]
                         )
@@ -137,7 +137,7 @@ class BridgeEventHandler(AsyncEventHandler):
             payload = {
                 "contents": [{
                     "parts": [
-                        {"text": "Переведи аудио в текст на русском языке. Выведи ТОЛЬКО распознанный текст без знаков препинания и без комментариев."},
+                        {"text": "Transcribe this audio into English text. Output ONLY the recognized text without punctuation or comments."},
                         {"inlineData": {"mimeType": "audio/wav", "data": b64_data}}
                     ]
                 }]
@@ -198,7 +198,7 @@ class BridgeEventHandler(AsyncEventHandler):
 
                     await ws.send(json.dumps({
                         "clientContent": {
-                            "turns": [{"role": "user", "parts": [{"text": f"Произнеси текст: {text}"}]}],
+                            "turns": [{"role": "user", "parts": [{"text": f"Read this text aloud: {text}"}]}],
                             "turnComplete": True
                         }
                     }))
@@ -255,7 +255,7 @@ class BridgeEventHandler(AsyncEventHandler):
 
                 await ws.send(json.dumps({
                     "clientContent": {
-                        "turns": [{"role": "user", "parts": [{"text": f"Произнеси текст: {text}"}]}],
+                        "turns": [{"role": "user", "parts": [{"text": f"Read this text aloud: {text}"}]}],
                         "turnComplete": True
                     }
                 }))
